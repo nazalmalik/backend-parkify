@@ -14,7 +14,11 @@ const app = express();
 
 
 // ✅ Other middlewares
-app.use(cors());
+app.use(cors({
+  origin: 'https://parkify-frontend-rouge.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true
+}));
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
